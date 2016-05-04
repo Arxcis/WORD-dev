@@ -1,61 +1,49 @@
-<!--DOCTYPE html-->
-<!--OPPRETTET: 04.05.16 kl 15:43 -->
-
-<html>
-    <head>
-        <meta charset="UTF-8"/>
-        <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
-        <script type="text/javascript">
-          tinymce.init({
-            selector: '.myeditablediv',
-            theme: 'modern',
-            width: 900,
-            height: 500,
-            style_formats: [
-            {title: 'Bold text', inline: 'b'},
-            {title: 'Red text', inline: 'span', styles: {color: '#ff0000'}},
-            {title: 'Red header', block: 'h1', styles: {color: '#000000'}},
-            {title: 'Example 1', inline: 'span', classes: 'example1'},
-            {title: 'Example 2', inline: 'span', classes: 'example2'},
-            {title: 'Table styles'},
-            {title: 'Table row 1', selector: 'tr', classes: 'tablerow1'}
-          ]
-          });
-        </script>
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel='stylesheet' type='text/css'/>
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
-        <link rel="stylesheet" type="text/css" href="static/style.css"/>
-    </head>
-<body>
+{% include 'header.html'%}
 
 
-<div class="container">
 
-    <div id="wrapper">
-        <header>
-            <h1 id="text-heading" class="col-md-6"><a href="/"><small>eviate</small> WORD</h1></a>
-        </header>
+        <section id="main-section">
 
-        <section id="main-section" class="col-md-12">
-            <form method="post">
-            <label id="blobheader"> Tittel: something  <small>Author: something</small></label>
-            <br/>
-                <div class="myeditablediv"> Click here to edit the first section of content!
-                </div>
+            <div id="formdiv">
+                <form id="textboxform" action="/textupdate" method="post">
+                    <div id="formlabels">
+                        <h2 id="formheader"> Tittel: {{ doc[1] }}</h2>
+                        <h3 id="formheader2"> Author: {{ doc[2] }} </h3>
+                    </div>
+                    <div class="col-md-2">
+                        <input id="idid" name="ID" type="text" class="form-control input-md" value="{{ doc[0] }}">
+                        </div>
+                    <br/>
 
-                <div id="the-button" class="col-md-6">
-                    <input type="submit" class="btn btn-info" value="Submit Button">
-                </div>
-            </form>
+                    <textarea id="myeditablediv" name="myeditablediv" class="myeditablediv">{{ doc[3] }}</textarea>
+
+                    <div id="button-row">
+                        <input onclick="submitForm()" value="Update text" class="btn btn-success"/>
+                    </div>
+
+                </form>
+            </div>
+            
+
+            <div id="result">
+            </div>
         </section>
 
-        <footer>
-            <p class="col-md-6">Et system av Jonas J. Solsvik</p>
-        </footer>
 
-    </div>
-</div>
+
+{% include 'footer.html'%}
 
 
 </body>
 </html>
+
+<script language="Javascript">
+    
+
+    function submitForm() { 
+        tinyMCE.triggerSave();
+       document.getElementById("textboxform").submit();
+
+}
+
+</script>

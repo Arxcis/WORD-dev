@@ -1,8 +1,8 @@
 /* GENERAL CSS */
 
-html, body {font-family: 'Open Sans', sans-serif; font-size: 20pt; height: 100%; background-color: #666666; color: #4d4d4d;}
+html, body {font-family: 'Open Sans', sans-serif; font-size: 20pt; min-height: 100%; background-color: #666666; color: #4d4d4d;}
 
-header {background-color: #bfbfbf; margin-top: 20pt; margin-bottom: 20pt; padding: 20pt 20pt 40pt 20pt; border-right: 2pt solid #666666; border-left: 2pt solid #666666; text-align: center;}
+header {background-color: #bfbfbf; margin-bottom: 20pt; margin-top: 20pt; padding: 20pt 20pt 40pt 20pt; border-right: 2pt solid #666666; border-left: 2pt solid #666666; text-align: center;}
 
 a {
   color: #4d4d4d; /* blue colors for links too */
@@ -10,17 +10,24 @@ a {
 }
 
 /* WRAPPER as decribed here ->  http://stackoverflow.com/questions/19756997/how-to-create-a-sticky-footer-that-plays-well-with-bootstrap-3*/
-#wrapper {height: 800pt; display: flex; flex-direction: column; background-color: #fff; box-shadow: 0 40px 8px 0 rgba(0, 0, 0, 0.2), 0 60px 20px 0 rgba(0, 0, 0, 0.19);}
-
+#wrapper {display: flex; flex: 1; flex-direction: column; background-color: #fff; box-shadow: 0 40px 8px 0 rgba(0, 0, 0, 0.2), 0 60px 20px 0 rgba(0, 0, 0, 0.19);}
 #text-heading {font-size: 2rem;}
+#main-section {margin: 0pt 50pt 12pt 12pt; padding: 20pt 20pt; display: flex; flex-direction: column;}
 
-#main-section {margin: 0pt 50pt 12pt 12pt; padding: 20pt 20pt;}
-
-footer {background-color: #bfbfbf; padding-left: 20pt; margin: 20pt 0pt 0pt 0pt; border-right: 1pt solid #666666; border-left: 1pt solid #666666; text-align: center; font-size: 16pt; }
+footer {height: 60pt; background-color: #bfbfbf; padding-left: 20pt; margin: 20pt 0pt 0pt 0pt; border-left: 2pt solid #666666; border-right: 2pt solid #666666; text-align: center; font-size: 16pt; display: flex; justify-content: flex-end; align-items: flex-end;}
+#footertext {font-size: 12pt;}
 
 /* TEXTEDIT.HTML */
-
-#blobheader {margin-bottom: 20pt;}
-#the-button {margin-top: 20pt;}
+#textboxform {display: flex; flex-direction: column; align-items: center;}
+#formheader {margin-bottom: 20pt;}
+#formheader2 {margin-bottom: 20pt;}
+#button-row {margin-top: 20pt; display: flex; justify-content: center;}
+#idid {text-align: center;}
+#formlabels {text-align: center;}
 
 /* OVERSIKT.HTML */ 
+#nyttdokument {margin-top: 20pt; margin-bottom: 20pt;}
+
+/* nyttdokument.html */
+#opprettbtn {margin-top: 20pt;}
+#fields { margin-top: 30pt; }

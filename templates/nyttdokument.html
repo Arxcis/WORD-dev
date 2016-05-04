@@ -1,0 +1,52 @@
+{% include 'header.html'%}
+
+
+
+            <section id="main-section" class="col-md-12">
+
+            <form action="/opprett" method="post" class="form-horizontal">
+                
+
+                <!-- Form Name -->
+                <legend>OPPRETT DOKUMENT</legend>
+
+                <fieldset id="fields">
+                    <!-- Text input-->
+                    <div class="form-group">
+                      <label class="col-md-3 control-label" for="textinput">Tittel</label>  
+                      <div class="col-md-5">
+                        <input id="textinput" name="tittel" type="text" placeholder="Tittel" class="form-control input-md" required="">
+                        
+                      </div>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                      <label class="col-md-3 control-label" for="textinput2">Emne</label>  
+                      <div class="col-md-5">
+                        <input id="textinput2" name="emne" type="text" placeholder="Emne" class="form-control input-md" required="">
+                        
+                      </div>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                      <label class="col-md-3 control-label" for="textinput3">Forfatter</label>  
+                      <div class="col-md-5">
+                        <input id="textinput3" name="forfatter" type="text" placeholder="Forfatter" class="form-control input-md" required="">
+                        
+                      </div>
+                    </div>
+                </fieldset>
+
+                    <button id="opprettbtn" class="btn btn-success col-md-offset-7" type=submit name=Submit>OPRETT</button>
+
+
+            </form>
+
+            </section>
+
+
+
+
+{% include 'footer.html'%}

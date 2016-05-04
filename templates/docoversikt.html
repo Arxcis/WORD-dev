@@ -1,52 +1,37 @@
-<!--DOCTYPE html-->
-<!--OPPRETTET: 04.05.16 kl 15:43 -->
+{% include 'header.html'%}
 
-<html>
-    <head>
-        <meta charset="UTF-8"/>
-        <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
-        <script type="text/javascript">
-          tinymce.init({
-            selector: '.myeditablediv',
-            theme: 'modern',
-            width: 900,
-            height: 500,
-            style_formats: [
-            {title: 'Bold text', inline: 'b'},
-            {title: 'Red text', inline: 'span', styles: {color: '#ff0000'}},
-            {title: 'Red header', block: 'h1', styles: {color: '#000000'}},
-            {title: 'Example 1', inline: 'span', classes: 'example1'},
-            {title: 'Example 2', inline: 'span', classes: 'example2'},
-            {title: 'Table styles'},
-            {title: 'Table row 1', selector: 'tr', classes: 'tablerow1'}
-          ]
-          });
-        </script>
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel='stylesheet' type='text/css'/>
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
-        <link rel="stylesheet" type="text/css" href="static/style.css"/>
-    </head>
-<body>
-
-
-<div class="container">
-
-    <div id="wrapper">
-        <header>
-            <h1 id="text-heading" class="col-md-6"><small>eviate</small> WORD</h1>
-        </header>
 
         <section id="main-section" class="col-md-12">
-        <a href="display">button</a>
+
+            <button id="nyttdokument" class="btn btn-success"><a href="/nyttdokument">NYTT DOKUMENT</a></button>
+
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tittel</th>
+                        <th>Emne</th>
+                        <th>Forfatter</th>
+                        <th>Sist endret</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in table %}
+                        <tr>
+                            <td><a href="/display?row={{ row[0]}}">{{ row[0] }}</a></td>
+                            <td>{{ row[1] }}</td>
+                            <td>{{ row[2] }}</td>
+                            <td>{{ row[3] }}</td>
+                            <td>{{ row[4] }}</td>
+                        </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+
         </section>
 
-        <footer>
-            <p class="col-md-6">Et system av Jonas J. Solsvik</p>
-        </footer>
-
-    </div>
-</div>
 
 
-</body>
-</html>
+
+{% include 'footer.html'%}
